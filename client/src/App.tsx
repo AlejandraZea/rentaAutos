@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login'
 import Register from './pages/Register'
 import AdminDashboard from './pages/AdminDashboard'
-import UserDashboard from './pages/UserDashboard.tsx'
+import UserDashboard from './pages/UserDashboard'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -19,7 +19,7 @@ function App() {
 
                 {/* Rutas protegidas */}
                 <Route
-                    path="/admin"
+                    path="/AdminDashboard"
                     element={
                         user && user.role === 'admin' ? (
                             <AdminDashboard />
@@ -30,7 +30,7 @@ function App() {
                 />
 
                 <Route
-                    path="/dashboard"
+                    path="/UserDashboard"
                     element={
                         user && user.role === 'user' ? (
                             <UserDashboard />

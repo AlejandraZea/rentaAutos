@@ -22,20 +22,19 @@ export default function Login() {
             })
 
             const data = await res.json()
-            debugger;
 
             if (!res.ok) throw new Error(data.error || 'Error en el login')
 
             setMessage(`Bienvenido, ${data.user.username}`)
             setRole(data.user.role)
 
-            localStorage.setItem('user', JSON.stringify(data.user)) // ✅ solo una vez
+            localStorage.setItem('user', JSON.stringify(data.user)) // solo una vez
 
-            // ✅ redirección según rol
+            // redirección según rol
             if (data.user.role === 'admin') {
-                navigate('/admin')
+                navigate('/AdminDashboard')
             } else {
-                navigate('/dashboard')
+                navigate('/UserDashboard')
             }
 
         } catch (err: any) {

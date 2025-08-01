@@ -17,8 +17,12 @@ export default function Header() {
             <nav className="flex gap-4 items-center">
                 {user ? (
                     <>
-                        {user.role === 'admin' && <Link to="/admin">Admin</Link>}
-                        {user.role === 'user' && <Link to="/dashboard">Dashboard</Link>}
+                        <span className="text-lg font-large text-gray-300">
+                            Bienvenido, <strong>{user.username}</strong>
+                        </span>
+
+                        {user.role === 'admin' && <Link to="/AdminDashboard">Administrador</Link>}
+                        {user.role === 'user' && <Link to="/UserDashboard">Usuario</Link>}
                         <button
                             onClick={handleLogout}
                             className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded"
@@ -29,7 +33,6 @@ export default function Header() {
                 ) : (
                     <>
                         <Link to="/login">Login</Link>
-                        <Link to="/register">Registro</Link>
                     </>
                 )}
             </nav>
