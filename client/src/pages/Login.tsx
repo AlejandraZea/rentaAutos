@@ -1,7 +1,6 @@
 // src/pages/Login.tsx
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom' // ✅ falta esta línea
-import LogoutButton from '../components/LogoutButton'
 
 export default function Login() {
     const [form, setForm] = useState({ email: '', password: '' })
@@ -51,7 +50,6 @@ export default function Login() {
                 <input name="email" type="email" placeholder="Correo" onChange={handleChange} className="p-2 border rounded" />
                 <input name="password" type="password" placeholder="Contraseña" onChange={handleChange} className="p-2 border rounded" />
                 <button type="submit" className="bg-green-600 text-white py-2 rounded">Iniciar sesión</button>
-                <LogoutButton />
             </form>
             {message && <p className="mt-4 text-center">{message}</p>}
             {role && (

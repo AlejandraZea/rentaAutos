@@ -2,14 +2,17 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import AdminDashboard from './pages/Admin'
-import UserDashboard from './pages/Dashboard'
+import AdminDashboard from './pages/AdminDashboard'
+import UserDashboard from './pages/UserDashboard.tsx'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
     const user = JSON.parse(localStorage.getItem('user') || 'null')
 
     return (
         <Router>
+            <Header />
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
@@ -40,6 +43,7 @@ function App() {
                 {/* Redirección por defecto */}
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
+            <Footer />
         </Router>
     )
 }

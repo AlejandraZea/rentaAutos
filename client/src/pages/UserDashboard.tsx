@@ -1,4 +1,4 @@
-export default function Dashboard() {
+export default function UserDashboard() {
     const user = JSON.parse(localStorage.getItem('user') || '{}')
     return (
         <div className="p-10">
